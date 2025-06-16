@@ -18,7 +18,8 @@ PASS_FILE="${CERT_NAME}.pass"
 # Generate secure 32-character password
 gen_password() {
     LC_ALL=C tr -dc 'A-Za-z0-9!@#$%^&*()_+{}|:<>?=' < /dev/urandom \
-    | head -c 32
+    | head -c 32 \
+    | base64
 }
 
 PASSWORD=$(gen_password)
